@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "client",
   "version": "1.0.0",
   "description": "Ecommerce frontend client",
@@ -20,25 +19,5 @@
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
     "vite": "^5.2.0"
-=======
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "Ecommerce backend server",
-  "main": "index.js",
-"scripts": {
-  "start": "node index.js"
-  },
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.3.1",
-    "razorpay": "^2.9.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.2"
->>>>>>> 50fda94756f38fcc0487e61db402542006db58ab
   }
 }
