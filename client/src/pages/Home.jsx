@@ -1,38 +1,15 @@
-import React, { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
+import React, { useEffect, useState } from "react";
 
-export default function Home() {
+export default function Home({ addToCart }) {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
-  const { token } = useContext(AuthContext);
-  const userId = "demoUser"; // replace with real user ID from token decode
-  
+
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch("https://rozmart.onrender.com/api/products") // ✅ Render API URL
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => setProducts(data))
+      .catch((err) => console.error(err));
   }, []);
-  
-  const addToCart = async (product) => {
-    if (!token) {
-      alert("Please login first!");
-      return;
-    }
-    
-    const res = await fetch(`http://localhost:5000/api/cart/${userId}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ productId: product._id, quantity: 1 }),
-    });
-    
-    const data = await res.json();
-    setCart(data.items);
-    alert("Added to cart!");
-  };
-  
+
   return (
     <main className="container mx-auto px-4 py-10">
       <h2 className="text-2xl font-semibold mb-6">Our Products</h2>
