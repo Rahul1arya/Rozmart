@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import Home from "./pages/Home";
-import Login from "./Login";
-import Checkout from "./Checkout";
-import Admin from "./Admin";
+import Login from "./pages/Login";
+import Checkout from "./pages/Checkout";
+import Admin from "./pages/Admin";
 
 export default function App() {
   const [cart, setCart] = useState([]);
