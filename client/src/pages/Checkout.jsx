@@ -9,7 +9,7 @@ export default function Checkout() {
     const amount = 500; // ₹500
 
     // Create order on backend
-    const res = await fetch("http://localhost:5000/api/payment/orders", {
+    const res = await fetch("${import.meta.env.VITE_API_URL}/api/payment/orders", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount }),
@@ -27,7 +27,7 @@ export default function Checkout() {
       handler: async function (response) {
         // Verify payment
         const verifyRes = await fetch(
-          "http://localhost:5000/api/payment/verify",
+          "${import.meta.env.VITE_API_URL}/api/payment/verify",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -43,7 +43,7 @@ export default function Checkout() {
 
         if (verifyData.success) {
           // Save order in DB
-          await fetch("http://localhost:5000/api/orders", {
+          await fetch("${import.meta.env.VITE_API_URL}/api/orders", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

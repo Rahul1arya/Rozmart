@@ -10,13 +10,13 @@ export default function Admin() {
   const [image, setImage] = useState("");
 
   const fetchProducts = async () => {
-    const res = await fetch("http://localhost:5000/api/products");
+    const res = await fetch("${import.meta.env.VITE_API_URL}/api/products");
     const data = await res.json();
     setProducts(data);
   };
 
   const fetchOrders = async () => {
-    const res = await fetch("http://localhost:5000/api/orders", {
+    const res = await fetch("${import.meta.env.VITE_API_URL}/api/orders", {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
@@ -24,7 +24,7 @@ export default function Admin() {
   };
 
   const addProduct = async () => {
-    await fetch("http://localhost:5000/api/products", {
+    await fetch("${import.meta.env.VITE_API_URL}/api/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +39,7 @@ export default function Admin() {
   };
 
   const deleteProduct = async (id) => {
-    await fetch(`http://localhost:5000/api/products/${id}`, {
+    await fetch(`${import.meta.env.VITE_API_URL}/api/products/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
