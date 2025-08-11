@@ -6,7 +6,11 @@ const connectDB = require("./config/db");
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: "https://rozmart-frontend.onrender.com", // Apne frontend ka URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 
 // Connect to MongoDB
