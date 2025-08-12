@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Product = require("./models/Product");
 
 // ✅ Replace this with your real MongoDB URI
-const MONGODB_URI = "your_mongodb_connection_uri_here";
+const MONGODB_URI = "mongodb+srv://rahularyashabga:<db_password>@rozmart.ezcjwwx.mongodb.net/?retryWrites=true&w=majority&appName=Rozmart";
 
 const sampleProducts = [
   {
